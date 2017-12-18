@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: eureka-test-consumer-ribbon-withHystrix
+server:
+  port: 8889
+eureka:
+  client:
+    serviceUrl:
+    #注册到的地址
+       defaultZone: http://localhost:9010/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true #鼠标移动显示ip
+    instance-id: ${spring.application.name}:${server.port} #改变主机名
+    
+    #配置文件取代java代码的配置，优先级最高
+#eureka-test-producer:
+   #ribbon:
+    #NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule

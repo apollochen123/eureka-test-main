@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: eureka-test-consumer-feign-hystrix
+server:
+  port: 8891
+eureka:
+  client:
+    serviceUrl:
+    #注册到的地址
+      defaultZone: http://localhost:9010/eureka/
+  instance:
+    prefer-ip-address: true #鼠标移动显示ip
+    instance-id: ${spring.application.name}:${server.port} #改变主机名
+
+logging:
+  level:
+    com.chen.eureka.comsumer.feignInterface.GetUserInterface : DEBUG
+    # To disable Hystrix in Feign
+#feign:
+  #hystrix:
+    #enabled: false
+    # To set thread isolation to SEMAPHORE 一般不会使用
+#hystrix: 
+  #command:
+    #default:
+      #execution:
+        #isolation:
+          #strategy: SEMAPHORE
+
+#请求压缩compression          
+#feign.compression.request.enabled=true
+#feign.compression.response.enabled=true         
+          
+    #配置文件取代java代码的配置，优先级最高
+#eureka-test-producer:
+   #ribbon:
+    #NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule

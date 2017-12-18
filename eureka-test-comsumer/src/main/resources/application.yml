@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eureka-test-consumer
+server:
+  port: 8889
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://root:123456@localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true #鼠标移动显示ip
+    #instance-id: ${spring.application.name}:${server.port} #改变主机名

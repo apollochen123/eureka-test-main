@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: eureka-test-producer
+server:
+  port: 8886
+eureka:
+  client:
+    serviceUrl:
+       defaultZone:  http://localhost:9010/eureka/
+  instance:
+    prefer-ip-address: true #鼠标移动显示ip
+    instance-id: ${spring.application.name}:${server.port} #改变主机名
+    
+      
+    
